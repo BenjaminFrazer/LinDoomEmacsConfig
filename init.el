@@ -21,48 +21,30 @@
 
        :completion
        company           ; the ultimate code completion backend
-<<<<<<< HEAD
-       ;;helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
-       ;;ivy               ; a search engine for love and life
-       vertico           ; the search engine of the future
-=======
        helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
        ;;vertico           ; the search engine of the future
->>>>>>> remoteWin/master
 
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-<<<<<<< HEAD
        ;;(emoji +unicode)  ; 🙂
-=======
        (emoji +unicode)  ; 🙂
->>>>>>> remoteWin/master
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
        ;;ligatures         ; ligatures and symbols to make your code pretty again
        minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
-<<<<<<< HEAD
-       ;;nav-flash         ; blink cursor line after big motions
-=======
        nav-flash         ; blink cursor line after big motions
->>>>>>> remoteWin/master
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
        ;;tabs              ; a tab bar for Emacs
-<<<<<<< HEAD
        ;;treemacs          ; a project drawer, like neotree but cooler
-=======
-       treemacs          ; a project drawer, like neotree but cooler
->>>>>>> remoteWin/master
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -93,15 +75,6 @@
 
        :term
        ;;eshell            ; the elisp shell that works everywhere
-<<<<<<< HEAD
-       ;;shell             ; simple shell REPL for Emacs
-       ;;term              ; basic terminal emulator for Emacs
-       ;;vterm             ; the best terminal emulation in Emacs
-
-       :checkers
-       syntax              ; tasing you for every semicolon you forget
-       ;;(spell +flyspell) ; tasing you for misspelling mispelling
-=======
        shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
        vterm             ; the best terminal emulation in Emacs
@@ -109,16 +82,11 @@
        :checkers
        syntax              ; tasing you for every semicolon you forget
        (spell +flyspell) ; tasing you for misspelling mispelling
->>>>>>> remoteWin/master
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
-<<<<<<< HEAD
-       ;;debugger          ; FIXME stepping through code, to help you add bugs
-=======
        debugger          ; FIXME stepping through code, to help you add bugs
->>>>>>> remoteWin/master
        ;;direnv
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
@@ -126,11 +94,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-<<<<<<< HEAD
-       ;;lsp               ; M-x vscode
-=======
        lsp               ; M-x vscode
->>>>>>> remoteWin/master
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -149,11 +113,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
-<<<<<<< HEAD
-       ;;cc                ; C > C++ == 1
-=======
        cc                ; C > C++ == 1
->>>>>>> remoteWin/master
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -181,11 +141,7 @@
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-<<<<<<< HEAD
-       ;;latex             ; writing papers in Emacs has never been so fun
-=======
        latex             ; writing papers in Emacs has never been so fun
->>>>>>> remoteWin/master
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
        ;;lua               ; one-based indices? one-based indices
@@ -197,11 +153,7 @@
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-<<<<<<< HEAD
-       python            ; beautiful is better than ugly
-=======
        (python +lsp +pyright)            ; beautiful is better than ugly
->>>>>>> remoteWin/master
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
