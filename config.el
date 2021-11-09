@@ -1,4 +1,3 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -37,7 +36,26 @@
 ;; sets the projectile search path
 (setq
 projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628/Documents/Notebooks/Emacs/Admin/")
- )
+)
+
+;org bullets related
+;(require 'org-bullets)
+;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; different bullet point
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+
+;letex export related
+(add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
+
+;;(setq org-latex-pdf-process
+        ;;'("pdflatex -interaction nonstopmode -output-directory %o %f"
+      ;;"bibtex %b"
+      ;;"pdflatex -interaction nonstopmode -output-directory %o %f"
+    ;;  "pdflatex -interaction nonstopmode -output-directory %o %f"))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
