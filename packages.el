@@ -31,7 +31,7 @@
 ;(package! builtin-package :recipe (:nonrecursive t))
 ;(package! builtin-package-2 :recipe (:repo "myfork/package"))
 
-
+;;(package! pdf-tools)
 (package! org-superstar)
 
 (package! org-fragtog) ;;

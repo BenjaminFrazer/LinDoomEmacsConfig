@@ -38,6 +38,16 @@
 projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628/Documents/Notebooks/Emacs/Admin/")
 )
 
+(setq org-ditaa-jar-path "C:/Users/b0628/ditaa")
+
+(add-to-list 'yas-snippet-dirs "C:/Users/b0628/.doom.d/snippets/org-mode")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ; this line activates ditaa
+
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-minimum-prefix-length 1)
 ;org bullets related
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
