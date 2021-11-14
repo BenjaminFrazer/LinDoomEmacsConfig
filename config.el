@@ -59,6 +59,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 ;latex export related
 (add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
+
 ;(eval-after-load 'org-fragtog-mode
     ;(add-to-list 'org-latex-packages-alist '("" "steinmetz" t)))
 ;;(setq org-latex-pdf-process
@@ -69,7 +70,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 (require 'org)
 (require 'ox-latex)
-(add-to-list 'org-latex-packages-alist '("" "minted" t))
+(add-to-list 'org-latex-packages-alist '("" "minted" nil))
 (setq org-latex-listings 'minted)
 
 (setq org-latex-pdf-process
