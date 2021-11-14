@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: python_source_basic
+# key: python_source_basic
+# --
+#+begin_src python
+    $1
+#+end_src

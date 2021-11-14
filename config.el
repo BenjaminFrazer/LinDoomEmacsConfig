@@ -57,14 +57,27 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 
-;letex export related
+;latex export related
 (add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
-
+;(eval-after-load 'org-fragtog-mode
+    ;(add-to-list 'org-latex-packages-alist '("" "steinmetz" t)))
 ;;(setq org-latex-pdf-process
         ;;'("pdflatex -interaction nonstopmode -output-directory %o %f"
       ;;"bibtex %b"
       ;;"pdflatex -interaction nonstopmode -output-directory %o %f"
     ;;  "pdflatex -interaction nonstopmode -output-directory %o %f"))
+
+(require 'org)
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted" t))
+(setq org-latex-listings 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
+;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
