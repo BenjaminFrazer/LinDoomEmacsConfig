@@ -35,6 +35,9 @@
 (package! org-superstar)
 
 (package! org-fragtog) ;;
+;;
+;;
+;(package! texfrag)
 
 ;(package! org-bullets)
 

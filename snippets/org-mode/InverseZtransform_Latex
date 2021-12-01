@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: InverseZtransform_Latex
+# key: InverseZtransform_Latex
+# --
+\mathlarger{\mathcal{Z}^{-1}}\left\\{ $1 \right\\}

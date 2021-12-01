@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Ztransform_Latex
+# key: Ztransform_Latex
+# --
+\mathlarger{\mathcal{Z}}\left\\{ $1 \right\\}

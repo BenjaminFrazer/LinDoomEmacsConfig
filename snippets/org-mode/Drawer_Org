@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Drawer_Org
+# key: Drawer_Org
+# --
+:$1:
+$2
+:END:

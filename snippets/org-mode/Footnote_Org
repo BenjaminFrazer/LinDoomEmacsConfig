@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Footnote_Org
+# key: Footnote_Org
+# --
+[fn:$1: $2]
