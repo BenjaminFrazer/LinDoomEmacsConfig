@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: FancySymbol_Latex
+# key: FancySymbol_Latex
+# --
+\mathlarger{\mathcal{$1}}

@@ -1,0 +1,39 @@
+# -*- mode: snippet -*-
+# name: Plot_Pyton_Matplotlib
+# key: Plot_Pyton_Matplotlib
+# --
+#+BEGIN_SRC python :session :results file :var data=$1 :exports results
+import matplotlib.pyplot as plt
+nHeaderRows = $2
+nSubPlots = $3
+saveFileName = "$4"
+
+titles = []
+titles.append("$5")
+
+data = data[nHeaderRows:]
+speed = [x[0] for x in data] # pick out first row
+LineVMeas = [x[2] for x in data] # pick out first row
+DcVOutMeasured= [x[3] for x in data] # pick out first row
+DcVOutThoery= [x[4] for x in data] # pick out first row
+plt.clf()
+fig, ax = plt.subplots(1,2,figsize=(10,5),sharey = True)
+ax[0].plot(speed,DcVOutThoery,label = 'DC Voltage (Theory)', marker = '^')
+ax[0].plot(speed,DcVOutMeasured,label = 'DC voltage (Measured)', marker = 'o')
+ax[0].set_xlabel('Speed (RPM)')
+ax[0].set_ylabel('DC Voltage (V)')
+for i in range(len(ax)):
+    tempAx = ax[i]
+    tempAx.grid()
+    tempAx.legend()
+    ax[i].set_title(titles[i])
+
+plt.legend()
+plt.savefig(saveFileName)
+saveFileName
+#+END_SRC
+
+#+ATTR_ORG: :width 500
+#+ATTR_LATEX:  :width 400
+#+caption: Ex 1.3 - No load DC voltage Vs Speed Measured and Calculated
+#+RESULTS:

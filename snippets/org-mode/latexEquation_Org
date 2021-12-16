@@ -1,0 +1,6 @@
+# key: latexEquation_Org
+# name: latexEquation_Org
+# --
+\\begin{align}
+$1
+\\end{align}

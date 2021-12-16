@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Matrix_Latex
+# key:
+# --
+\begin{align}
+$1 =
+    \begin{bmatrix}
+        $2 & $3 \\
+    \end{bmatrix}
+\end{align}

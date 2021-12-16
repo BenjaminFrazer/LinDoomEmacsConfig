@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Python_Export_Basic
+# key: Python_Export_Basic
+# --
+#+BEGIN_SRC python :session :results file :var data= :exports results
+saveFileName = "$1"
+saveFileName
+#+END_SRC

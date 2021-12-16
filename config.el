@@ -1,4 +1,3 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -33,6 +32,60 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
+;; sets the projectile search path
+(setq
+projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628/Documents/Notebooks/Emacs/Admin/")
+)
+
+(setq org-ditaa-jar-path "C:/Users/b0628/ditaa")
+(require 'yasnippet)
+;;(yas/global-mode 1)
+(add-to-list 'yas-snippet-dirs "C:/Users/b0628/.doom.d/snippets/org-mode")
+(define-key yas-minor-mode-map [(tab)] nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ; this line activates ditaa
+
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-minimum-prefix-length 1)
+;org bullets related
+;(require 'org-bullets)
+;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
+
+;; different bullet point
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+
+;latex export related
+;(add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
+
+;(eval-after-load 'org-fragtog-mode
+    ;(add-to-list 'org-latex-packages-alist '("" "steinmetz" t)))
+;;(setq org-latex-pdf-process
+        ;;'("pdflatex -interaction nonstopmode -output-directory %o %f"
+      ;;"bibtex %b"
+      ;;"pdflatex -interaction nonstopmode -output-directory %o %f"
+    ;;  "pdflatex -interaction nonstopmode -output-directory %o %f"))
+
+(require 'org)
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted" nil))
+(setq org-latex-listings 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
+;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
+
+
+ (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

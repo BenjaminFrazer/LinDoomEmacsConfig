@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: EvaluatedAt_Latex
+# key: EvaluatedAt_Latex
+# --
+\big\rvert_{$1}

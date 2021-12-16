@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: PictureHeader
+# key: PictureHeader
+# --
+#+ATTR_ORG: :width 600
+#+ATTR_LATEX:  :width 400

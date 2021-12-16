@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: case_Latex
+# key: case_Latex
+# --
+\begin{align}
+$1=
+    \begin{cases}
+    $2, & $3 \\\
+    $4, & $5
+    \end{cases}
+\end{align}

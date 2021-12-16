@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name:InverseLaplaceTransform_Latex
+# key: InverseLaplaceTransform_Latex
+# --
+
+\mathlarger{\mathcal{L}}^{-1}\left\\{ $1 \right\\}
