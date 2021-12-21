@@ -37,6 +37,20 @@
 (setq
 projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628/Documents/Notebooks/Emacs/Admin/")
 )
+(setq projectile-sort-order 'recently-active)
+
+;;#################C++/Arduino############################
+
+
+;; edit ino files with adruino mode.
+(add-to-list 'auto-mode-alist '("\\.ino$" . cpp-mode))
+
+;; Enable irony for all c++ files, and platformio-mode only
+;; when needed (platformio.ini present in project root).
+(add-hook 'c++-mode-hook (lambda ()
+                        (irony-mode)
+                        (irony-eldoc)
+                        (platformio-conditionally-enable)))
 
 (setq org-ditaa-jar-path "C:/Users/b0628/ditaa")
 (require 'yasnippet)
