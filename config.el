@@ -31,7 +31,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;;(setq display-line-numbers-type t)
 
 ;; sets the projectile search path
 (setq
