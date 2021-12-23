@@ -98,6 +98,25 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 ;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
 
+;; ############## window managment ##############################################################
+
+(setq display-buffer-alist
+      `(("\\(^\\*shell\\**\\)|\\(^\\*Python\\*$\\)"
+                ;;(+popup-buffer)
+                ;;(actions)
+                (side . bottom)
+                ;;(size . 0.15)
+                ;;(window-width . 40)
+                (window-height . 5)
+                ;;(slot)
+                ;;(vslot . -5)
+                ;;(window-parameters
+                        ;;(ttl)
+                        ;;(select . t)
+                        ;;(modeline)
+                        ;;(autosave))
+        )))
+
 
  (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 
