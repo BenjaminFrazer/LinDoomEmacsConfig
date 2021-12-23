@@ -48,8 +48,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;; Enable irony for all c++ files, and platformio-mode only
 ;; when needed (platformio.ini present in project root).
 (add-hook 'c++-mode-hook (lambda ()
-                        (irony-mode)
-                        (irony-eldoc)
+                        ;;(irony-mode)
+                        ;;(irony-eldoc)
                         (platformio-conditionally-enable)))
 
 (setq org-ditaa-jar-path "C:/Users/b0628/ditaa")
