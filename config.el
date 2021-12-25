@@ -55,7 +55,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (setq org-ditaa-jar-path "C:/Users/b0628/ditaa")
 (require 'yasnippet)
 ;;(yas/global-mode 1)
-(add-to-list 'yas-snippet-dirs "C:/Users/b0628/.doom.d/snippets/org-mode")
+;;(add-to-list 'yas-snippet-dirs "C:/Users/b0628/.doom.d/snippets/org-mode")
 (define-key yas-minor-mode-map [(tab)] nil)
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (org-babel-do-load-languages
