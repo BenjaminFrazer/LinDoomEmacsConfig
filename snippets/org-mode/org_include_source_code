@@ -1,0 +1,4 @@
+# key: org_include_source_code
+# name: org_include_source_code
+# --
+#+INCLUDE: "/home/$1" src python :lines "$2"

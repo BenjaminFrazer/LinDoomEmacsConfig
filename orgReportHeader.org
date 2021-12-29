@@ -1,0 +1,28 @@
+#+Description:
+#+EMAIL:2704250F@student.gla.ac.uk
+#+STARTUP: latexpreview
+#+LATEX_CLASS: article
+#+OPTIONS: H:3 d:nil \n:t tags:nil email:t toc:t broken-links:t ^:nil
+#+LATEX_HEADER: \usepackage[0.4cm]{geometry}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{amssymb}
+#+LATEX_HEADER: \newcommand {\R}{\mathbb{R}}
+#+LATEX_HEADER: \usepackage{gensymb}
+#+LATEX_HEADER: \usepackage{booktabs}
+#+LATEX_HEADER: \usepackage{minted}[linenos]
+#+LATEX_HEADER_EXTRA:  \usepackage{mdframed}
+#+LATEX_HEADER_EXTRA: \BeforeBeginEnvironment{minted}{\begin{mdframed}[style=sourcecode]}
+#+LATEX_HEADER_EXTRA: \AfterEndEnvironment{minted}{\end{mdframed}}
+#+LATEX_HEADER: \usepackage{sourcecodepro}
+
+#+begin_export latex
+\mdfdefinestyle{sourcecode}{%
+backgroundcolor=darkgray,
+hidealllines=true,
+%#rightline=true,innerleftmargin=10,innerrightmargin=10,
+%#frametitlerule=true,frametitlerulecolor=green,
+%#frametitlebackgroundcolor=darkgray,
+%#frametitlerulewidth=2pt
+}
+#+end_export
