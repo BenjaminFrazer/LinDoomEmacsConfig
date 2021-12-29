@@ -19,6 +19,12 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#7F9F7F"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#494949"))
  '(objed-cursor-color "#CC9393")
+ '(org-latex-logfiles-extensions
+   '("tex" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv"))
+ '(org-latex-minted-options
+   '(("style" "native")
+     ("breaklines" "true")
+     ("linenos" "true")))
  '(org-startup-with-inline-images t)
  '(org-superstar-item-bullet-alist '((42 . 8226) (43 . 10148) (45 . 8211) (43 . 9654)))
  '(pdf-view-midnight-colors (cons "#DCDCDC" "#3F3F3F"))
