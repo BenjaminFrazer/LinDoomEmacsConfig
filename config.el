@@ -99,7 +99,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
 
 ;; ############## window managment ##############################################################
-
+(after! 'org)
 (setq display-buffer-alist
       `(("\\(^\\*shell\\**\\)|\\(^\\*Python\\*$\\)"
                 ;;(+popup-buffer)
