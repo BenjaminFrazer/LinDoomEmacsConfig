@@ -22,7 +22,7 @@
  '(org-latex-logfiles-extensions
    '("tex" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv"))
  '(org-latex-minted-options
-   '(("style" "native")
+   '(("style" "manni")
      ("breaklines" "true")
      ("linenos" "true")))
  '(org-startup-with-inline-images t)

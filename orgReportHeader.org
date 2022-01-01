@@ -11,16 +11,22 @@
 #+LATEX_HEADER: \usepackage{gensymb}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{minted}[linenos]
-#+LATEX_HEADER_EXTRA:  \usepackage{mdframed}
+#+LATEX_HEADER_EXTRA:  \usepackage[framemethod=tikz]{mdframed}
 #+LATEX_HEADER_EXTRA: \BeforeBeginEnvironment{minted}{\begin{mdframed}[style=sourcecode]}
 #+LATEX_HEADER_EXTRA: \AfterEndEnvironment{minted}{\end{mdframed}}
 #+LATEX_HEADER: \usepackage{sourcecodepro}
-
+#+LATEX_HEADER: \definecolor{deepblue}{rgb}{0.0, 0.18, 0.39}
 #+begin_export latex
 \mdfdefinestyle{sourcecode}{%
-backgroundcolor=darkgray,
+%backgroundcolor=darkgray,
 hidealllines=true,
-%#rightline=true,innerleftmargin=10,innerrightmargin=10,
+apptotikzsetting={%
+  \tikzset{mdfbackground/.append style={fill=deepblue,fill opacity=0.1}}},
+leftline=true,%innerleftmargin=10,innerrightmargin=10,
+innerleftmargin=20,
+linewidth = 4pt,
+roundcorner = 2pt,
+linecolor= darkgray,
 %#frametitlerule=true,frametitlerulecolor=green,
 %#frametitlebackgroundcolor=darkgray,
 %#frametitlerulewidth=2pt
