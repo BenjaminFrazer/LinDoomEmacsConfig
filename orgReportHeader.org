@@ -1,4 +1,3 @@
-#+Description:
 #+EMAIL:2704250F@student.gla.ac.uk
 #+STARTUP: latexpreview
 #+LATEX_CLASS: article
@@ -23,7 +22,7 @@ hidealllines=true,
 apptotikzsetting={%
   \tikzset{mdfbackground/.append style={fill=deepblue,fill opacity=0.1}}},
 leftline=true,%innerleftmargin=10,innerrightmargin=10,
-innerleftmargin=20,
+innerleftmargin=25,
 linewidth = 4pt,
 roundcorner = 2pt,
 linecolor= darkgray,

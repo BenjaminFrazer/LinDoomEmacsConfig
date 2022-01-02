@@ -20,9 +20,10 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#494949"))
  '(objed-cursor-color "#CC9393")
  '(org-latex-logfiles-extensions
-   '("tex" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv"))
+   '("tex" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "vrb" "xdv"))
  '(org-latex-minted-options
-   '(("style" "manni")
+   '(("breakautoindent" "false")
+     ("style" "manni")
      ("breaklines" "true")
      ("linenos" "true")))
  '(org-startup-with-inline-images t)
