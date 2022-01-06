@@ -4,6 +4,7 @@
 #+OPTIONS: H:3 d:nil \n:t tags:nil email:t toc:t broken-links:t ^:nil
 #+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage{float}
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \usepackage{amssymb}
 #+LATEX_HEADER: \newcommand {\R}{\mathbb{R}}
