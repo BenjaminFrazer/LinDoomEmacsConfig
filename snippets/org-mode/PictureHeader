@@ -2,7 +2,7 @@
 # name: PictureHeader
 # key: PictureHeader
 # --
-#+ATTR_ORG: :width 600
+#+ATTR_ORG: :width 500
 #+ATTR_LATEX:  :width 400pt
 #+ATTR_LATEX: :placement [H]
 #+caption: $1
