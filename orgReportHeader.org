@@ -20,6 +20,8 @@
 #+LATEX_HEADER: \usepackage{parskip}
 #+LATEX_HEADER: \usepackage{enumitem}
 #+LATEX_HEADER: \setlist{noitemsep}
+#+LATEX_HEADER: \usepackage[format=plain, labelfont={bf}, textfont=it]{caption}
+
 #+begin_export latex
 \mdfdefinestyle{sourcecode}{%
 %backgroundcolor=darkgray,
