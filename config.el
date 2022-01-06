@@ -19,8 +19,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "Source Code Pro" :size 14 )
-       doom-variable-pitch-font (font-spec :family "sans" :size 15))
-
+       doom-variable-pitch-font (font-spec :family "Ubuntu" :size 15))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -29,7 +28,19 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; this allows you to wrap lines for variable pitch fonts
+;; (add-hook 'org-mode-hook 'visual-line-mode)
+(add-hook 'org-mode-hook 'mixed-pitch-mode)
+(add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
 ;; This determines the style of line numbers in effect. If set to `nil', line
+(custom-set-faces
+  '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+)
+(setq org-ellipsis "▼")
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;;(setq display-line-numbers-type t)
 
@@ -72,12 +83,11 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
 ;; different bullet point
-(require 'org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;; (require 'org-superstar)
+;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 
 ;latex export related
-;(add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
 
 ;(eval-after-load 'org-fragtog-mode
     ;(add-to-list 'org-latex-packages-alist '("" "steinmetz" t)))
