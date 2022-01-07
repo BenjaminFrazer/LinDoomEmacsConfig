@@ -6,6 +6,10 @@
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage{float}
 #+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \numberwithin{equation}{section}
+#+LATEX_HEADER: \usepackage{chngcntr}
+#+LATEX_HEADER: \counterwithin{figure}{section}
+#+LATEX_HEADER: \counterwithin{table}{section}
 #+LATEX_HEADER: \usepackage{amssymb}
 #+LATEX_HEADER: \newcommand {\R}{\mathbb{R}}
 #+LATEX_HEADER: \usepackage{gensymb}
