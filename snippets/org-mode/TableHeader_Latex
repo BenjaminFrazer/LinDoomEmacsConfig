@@ -2,6 +2,6 @@
 # name: TableHeader_Latex
 # key: TableHeader_Latex
 # --
-#+ATTR_LATEX: placement [H]
+#+ATTR_LATEX: placement [H] :booktabs t:
 #+caption: $1
 #+NAME: $2

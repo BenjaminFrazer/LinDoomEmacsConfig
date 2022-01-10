@@ -1,6 +1,7 @@
 # key: latexEquation_Org
 # name: latexEquation_Org
 # --
+#+NAME: $1
 \\begin{align}
-$1
+$2
 \\end{align}

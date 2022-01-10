@@ -32,6 +32,7 @@
 ;(package! builtin-package-2 :recipe (:repo "myfork/package"))
 
 ;;(package! pdf-tools)
+(package! org-ref)
 ;; (package! org-superstar)
 (package! mixed-pitch)
 (package! org-fragtog) ;;

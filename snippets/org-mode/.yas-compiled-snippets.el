@@ -4,12 +4,12 @@
 (yas-define-snippets 'org-mode
                      '(("python_source_basic" "#+begin_src python\n    $1\n#+end_src" "python_source_basic" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/python_source_basic" nil nil)
                        ("org_include_source_code" "#+INCLUDE: \"/home/$1\" src python :lines \"$2\"" "org_include_source_code" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/org_include_source_code" nil nil)
-                       ("latexEquation_Org" "\\\\begin{align}\n$1\n\\\\end{align}\n" "latexEquation_Org" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/latexEquation_Org" nil nil)
+                       ("latexEquation_Org" "#+NAME: $1\n\\\\begin{align}\n$2\n\\\\end{align}\n" "latexEquation_Org" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/latexEquation_Org" nil nil)
                        ("case_Latex" "\\begin{align}\n$1=\n    \\begin{cases}\n    $2, & $3 \\\\\\\n    $4, & $5\n    \\end{cases}\n\\end{align}\n" "case_Latex" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/case_Latex" nil nil)
                        ("Ztransform_Latex" "\\mathlarger{\\mathcal{Z}}\\left\\\\{ $1 \\right\\\\}" "Ztransform_Latex" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/Ztransform_Latex" nil nil)
                        ("UofG_Student_ID" "2704250F" "UofG_Student_ID" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/UofG_Student_ID" nil nil)
                        ("UofG_Student_Email" "2704250F@student.gla.ac.uk" "UofG_Student_Email" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/UofG_Student_Email" nil nil)
-                       ("TableHeader_Latex" "#+ATTR_LATEX: placement [H]\n#+caption: $1\n#+NAME: $2\n" "TableHeader_Latex" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/TableHeader_Latex" nil nil)
+                       ("TableHeader_Latex" "#+ATTR_LATEX: placement [H] :booktabs t:\n#+caption: $1\n#+NAME: $2\n" "TableHeader_Latex" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/TableHeader_Latex" nil nil)
                        ("Python_Export_Basic" "#+BEGIN_SRC python :session :results file :var data= :exports results\nsaveFileName = \"$1\"\nsaveFileName\n#+END_SRC\n" "Python_Export_Basic" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/Python_Export_Basic" nil nil)
                        ("Plot_Pyton_Matplotlib" "#+BEGIN_SRC python :session :results file :var data=$1 :exports results\nimport matplotlib.pyplot as plt\nnHeaderRows = $2\nnSubPlots = $3\nsaveFileName = \"$4\"\n\ntitles = []\ntitles.append(\"$5\")\n\ndata = data[nHeaderRows:]\nspeed = [x[0] for x in data] # pick out first row\nLineVMeas = [x[2] for x in data] # pick out first row\nDcVOutMeasured= [x[3] for x in data] # pick out first row\nDcVOutThoery= [x[4] for x in data] # pick out first row\nplt.clf()\nfig, ax = plt.subplots(1,2,figsize=(10,5),sharey = True)\nax[0].plot(speed,DcVOutThoery,label = 'DC Voltage (Theory)', marker = '^')\nax[0].plot(speed,DcVOutMeasured,label = 'DC voltage (Measured)', marker = 'o')\nax[0].set_xlabel('Speed (RPM)')\nax[0].set_ylabel('DC Voltage (V)')\nfor i in range(len(ax)):\n    tempAx = ax[i]\n    tempAx.grid()\n    tempAx.legend()\n    ax[i].set_title(titles[i])\n\nplt.legend()\nplt.savefig(saveFileName)\nsaveFileName\n#+END_SRC\n\n#+ATTR_ORG: :width 500\n#+ATTR_LATEX:  :width 400\n#+caption: Ex 1.3 - No load DC voltage Vs Speed Measured and Calculated\n#+RESULTS:" "Plot_Pyton_Matplotlib" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/Plot_Pyton_Matplotlib" nil nil)
                        ("PictureHeading" "#+ATTR_ORG: :width 600\n#+ATTR_LATEX:  :width 400" "PictureHeading" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/PictureHeading" nil nil)
@@ -27,4 +27,4 @@
                        ("Cpp_Source_Code_Block" "#+begin_src C++\n$1\n#+end_src\n" "Cpp_Source_Code_Block" nil nil nil "/home/gimli/.doom.d/snippets/org-mode/Cpp_Source_Code_Block" nil nil)))
 
 
-;;; Do not edit! File generated at Thu Jan  6 14:51:12 2022
+;;; Do not edit! File generated at Fri Jan  7 15:12:51 2022

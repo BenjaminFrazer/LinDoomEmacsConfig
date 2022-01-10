@@ -57,6 +57,16 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (setq org-link-file-path-type 'relative)
 
 
+;; ################ org reff #############################
+;; (def-package! org-ref
+;;     :after org
+;;     :init
+;;     ; code to run before loading org-ref
+;;     :config
+;;     ; code to run after loading org-ref
+;;     )
+
+(setq org-latex-prefer-user-labels t)
 ;;#################C++/Arduino############################
 
 
@@ -110,9 +120,10 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (setq org-latex-listings 'minted)
 
 (setq org-latex-pdf-process
-      '("pdflatex -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
-;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+      '("pdflatex -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"
+       "bibtex %b"
+       "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+       "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 ;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
 
 ;; ############## window managment ##############################################################
