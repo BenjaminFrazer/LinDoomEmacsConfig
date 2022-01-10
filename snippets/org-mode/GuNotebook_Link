@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: GuNotebook_Link
+# key: GuNotebook_Link
+# --
+[[file:../GuNotebook.org][^Go Back]]
