@@ -50,6 +50,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 )
 (setq projectile-sort-order 'recently-active)
 
+(setq org-link-file-path-type 'relative)
 ;;#################C++/Arduino############################
 
 
