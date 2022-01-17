@@ -1,4 +1,5 @@
 # key: Org_Report_Header
 # name: Org_Report_Header
 # --
+#+STARTUP: latexpreview
 #+INCLUDE: "~/.doom.d/orgReportHeader.org"

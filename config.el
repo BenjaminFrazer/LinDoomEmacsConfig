@@ -56,7 +56,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 (setq org-link-file-path-type 'relative)
 
-
+;; ################ file template ########################
+(set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
 ;; ################ org reff #############################
 ;; (def-package! org-ref
 ;;     :after org
