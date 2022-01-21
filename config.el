@@ -134,7 +134,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;
 ; This was retrieved from this question (https://emacs.stackexchange.com/questions/60696) I posted.
 
-(setq org-preview-latex-default-process 'dvisvgm)
+;;(setq org-preview-latex-default-process 'dvisvgm) # doesnt work as well as imagemagic causes kind of coruped pngs to be created
 
 ; The following configuration disables the confirmation prompt whenever code blocks are evaluated.
 
