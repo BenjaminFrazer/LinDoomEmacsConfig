@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name:Python_Pandas_Plot
+# key: Python_Pandas_Plot
+# --
+#+BEGIN_SRC python :session :results file :output :var data=tabVoltDistResults :exports results :return saveName
+from tabulate import tabulate
+import pandas as pd
+import matplotlib.pyplot as plt
+saveName="voltDistResults.png"
+df = pd.DataFrame(data[1:], columns=data[0])
+ha = df.plot(x="N_Meas",y="Vratio_Pu",figsize=(8, 4))
+plt.savefig(saveName)
+#+END_SRC

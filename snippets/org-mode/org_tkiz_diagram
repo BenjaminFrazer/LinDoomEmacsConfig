@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: org_tkiz_diagram
+# key: org_tkiz_diagram
+# --
+#+begin_src latex :file $1.png :imagemagick yes :results file graphics :exports results :fit yes :iminoptions -density 1200
+\begin{tikzpicture}
+$2
+\end{tikzpicture}
+#+end_src

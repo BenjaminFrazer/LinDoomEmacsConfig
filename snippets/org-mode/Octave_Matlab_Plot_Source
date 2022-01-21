@@ -1,0 +1,12 @@
+# key: Octave_Matlab_Plot_Source
+# name: Octave_Matlab_Plot_Source
+# --
+#+begin_src octave :exports results :results file :var data=$1
+figure( 1, "visible", "off" );
+hold on
+# user code
+$2
+#end user code
+print -dpng chart.png "-S1200,600";
+ans = "chart.png";
+#+end_src
