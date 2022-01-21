@@ -127,6 +127,27 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 ;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
 
+;; ############## tkiz previews  ##############################################################
+;;(set-frame-font (font-spec :family "Ubuntu" :size 30))
+
+; The following configuration make Org Mode use imagemagick for processing images.
+;
+; This was retrieved from this question (https://emacs.stackexchange.com/questions/60696) I posted.
+
+(setq org-preview-latex-default-process 'dvisvgm)
+
+; The following configuration disables the confirmation prompt whenever code blocks are evaluated.
+
+(setq org-confirm-babel-evaluate nil)
+
+; The following hook make images to be shown after code blocks are executed.
+
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+
+; The following configuration allows code blocks whose language is latex to be evaluated
+
+(org-babel-do-load-languages 'org-babel-load-languages
+                 '((latex . t)))
 ;; ############## window managment ##############################################################
 (after! 'org)
 (setq display-buffer-alist
