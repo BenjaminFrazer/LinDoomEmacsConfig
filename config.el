@@ -49,6 +49,8 @@
 projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628/Documents/Notebooks/Emacs/Admin/")
 )
 (setq projectile-sort-order 'recently-active)
+(setq projectile-globally-ignored-files '(".*\\.tex\\..*")
+      )
 
 
 (setq display-line-numbers-type 'relative)
