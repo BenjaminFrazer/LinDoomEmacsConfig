@@ -94,7 +94,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
  '((ditaa . t))) ; this line activates ditaa
 
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-minimum-prefix-length 1)
+(setq company-minimum-prefix-length 2)
 ;org bullets related
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
