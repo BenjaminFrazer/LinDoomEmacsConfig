@@ -26,8 +26,9 @@
      ("style" "manni")
      ("breaklines" "true")
      ("linenos" "true")))
+ '(org-list-demote-modify-bullet '(("-" . "+") ("1." . "-") ("+" . "*")))
  '(org-startup-with-inline-images t)
- '(org-superstar-item-bullet-alist '((42 . 8226) (43 . 10148) (45 . 8211) (43 . 9654)))
+ '(org-superstar-item-bullet-alist '((42 . 8226) (43 . 9655) (45 . 9658)))
  '(pdf-view-midnight-colors (cons "#DCDCDC" "#3F3F3F"))
  '(python-shell-interpreter "ipython")
  '(rustic-ansi-faces
