@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
 # name: PictureHeader
-# key: PictureHeader
+# key: ;P
 # --
-#+ATTR_ORG: :width 500
+#+ATTR_ORG: :width 400
 #+ATTR_LATEX:  :width 400pt
 #+ATTR_LATEX: :placement [H]
 #+caption: $1
-#+label: fig: $2
+#+label: $0

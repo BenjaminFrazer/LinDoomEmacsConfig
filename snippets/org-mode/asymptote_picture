@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: asymptote_picture
+# --
+
+#+BEGIN_SRC asymptote :results value file :file circle.png :output-dir img/
+  size(2cm);
+  draw(unitcircle);
+#+END_SRC

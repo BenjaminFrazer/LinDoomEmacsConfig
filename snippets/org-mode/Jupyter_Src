@@ -1,0 +1,10 @@
+# key: <j
+# name: Jupyter_Src
+# --
+#+NAME: $1
+#+BEGIN_SRC jupyter-python :session test
+$2 = symbols('$2')
+$0
+#+End_src
+
+#+RESULTS: $1

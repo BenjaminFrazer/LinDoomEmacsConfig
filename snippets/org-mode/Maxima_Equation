@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Maxima_Equation
+# key: Maxima_Equation
+# --
+#+NAME: $1_code
+#+BEGIN_SRC maxima
+set_tex_environment_default ("\\\begin{align}", "\\\end{align}");
+fpprintprec:4;
+
+#+END_SRC
+
+#+NAME: $1
+#+RESULTS: $1_code
+\begin{align}x={{e^ {- x }}\over{x}}\end{align}
