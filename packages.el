@@ -43,6 +43,8 @@
 ;(package! org-bullets)
 (package! platformio-mode)
 (package! arduino-mode)
+(package! jupyter)
+;; (package! org-gcal)
 ;; Specify a `:branch' to install a package from a particular branch or tag.
 ;; This is required for some packages whose default branch isn't 'master' (which
 ;; our package manager can't deal with; see raxod502/straight.el#279)
