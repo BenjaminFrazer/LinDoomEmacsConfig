@@ -43,6 +43,7 @@
 )
 ;; (set-face-attribute 'default nil :height 140)
 (setq org-ellipsis "▼")
+(setq org-cycle-separator-lines -1) ;; stops the ellipsis miss-displaying
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;;(setq display-line-numbers-type t)
 
