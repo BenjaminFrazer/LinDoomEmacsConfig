@@ -101,6 +101,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;;     ; code to run after loading org-ref
 ;;     )
 
+(require 'org-ref)
+(setq org-ref-insert-cite-key "SPC i c")
 (setq org-latex-prefer-user-labels t)
 
 ;;########################org download################################
