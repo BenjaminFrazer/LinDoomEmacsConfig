@@ -33,13 +33,14 @@
 
 ;;(package! pdf-tools)
 (package! org-ref)
+(package! ivy-bibtex)
 ;; (package! org-superstar)
 (package! mixed-pitch)
 (package! org-fragtog) ;;
 ;;
 ;;
 ;(package! texfrag)
-
+(package! org-download)
 ;(package! org-bullets)
 (package! platformio-mode)
 (package! arduino-mode)

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: tikz_circuit_diagram
+# key: tikz_circuit_diagram
+# --
+#+begin_src latex :file $1.png :imagemagick yes :results file graphics :exports results :fit yes :iminoptions -density 1200
+\begin{circuitikz}
+$0
+\end{circuitikz}
+#+end_src

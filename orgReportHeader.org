@@ -4,6 +4,7 @@
 #+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage{gensymb}
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \numberwithin{equation}{section}
 #+LATEX_HEADER: \usepackage{chngcntr}

@@ -33,17 +33,23 @@
 ;; (add-hook 'org-mode-hook 'visual-line-mode)
 (add-hook 'org-mode-hook 'mixed-pitch-mode)
 (add-hook 'org-mode-hook 'org-fragtog-mode) ;; in config.el
+(add-hook 'org-mode-hook 'org-babel-ansi-colors-mode) ;; in config.el
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 (custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
-  '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
-  '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
-  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+  '(org-level-1 ((t (:inherit outline-1 :height 1.5 :weight semi-bold))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.3 :weight semi-bold))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.2 :weight semi-bold))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.0 :weight semi-bold))))
   '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
 )
 ;; (set-face-attribute 'default nil :height 140)
-(setq org-ellipsis "▼")
-(setq org-cycle-separator-lines -1) ;; stops the ellipsis miss-displaying
+(after! flycheck
+(setq! org-image-actual-width 400))
+(setq org-ellipsis " v")
+(setq org-cycle-separator-lines 3) ;; stops the ellipsis miss-displaying
+(setq org-latex-image-default-width "0.8\\textwidth")
+(setq org-latex-default-figure-position "H")
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;;(setq display-line-numbers-type t)
 
@@ -64,7 +70,30 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
 ;; ################ org reff #############################
-;; (def-package! org-ref
+
+;; (def-package! ivy-bibtex
+;;   :after org
+;;   :init
+;;   (setq
+;;    ;; bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
+;;    ;;      				 "~/Dropbox/emacs/bibliography/dei.bib"
+;;    ;;      				 "~/Dropbox/emacs/bibliography/master.bib"
+;;    ;;      				 "~/Dropbox/emacs/bibliography/archive.bib")
+;;    ;;      bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
+;;    ;;      bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+;; 	bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+
+;; 	bibtex-completion-additional-search-fields '(keywords)
+;; 	bibtex-completion-display-formats
+;; 	'((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+;; 	  (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+;; 	  (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+;; 	  (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+;; 	  (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+;; 	bibtex-completion-pdf-open-function
+;; 	(lambda (fpath)
+;; 	  (call-process "open" nil 0 nil fpath))))
+; (def-package! org-ref
 ;;     :after org
 ;;     :init
 ;;     ; code to run before loading org-ref
@@ -73,6 +102,14 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;;     )
 
 (setq org-latex-prefer-user-labels t)
+
+;;########################org download################################
+
+(require 'org-download)
+
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+(setq org-download-screenshot-method "flameshot gui --raw > %s")
 ;;#################C++/Arduino############################
 
 
@@ -94,8 +131,11 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ditaa . t))) ; this line activates ditaa
-
+ '((ditaa . t)) ; this line activates ditaa
+ '((maxima . t)) ; this line activates maxima
+ '((asymptote. t)) ; this line activates maxima
+ '((jupyter . t))
+ )
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 2)
 ;org bullets related
@@ -105,10 +145,41 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/maxima/")
+(autoload 'maxima-mode "maxima" "Maxima mode" t)
+(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
+(autoload 'maxima "maxima" "Maxima interaction" t)
+(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
+(setq imaxima-use-maxima-mode-flag t)
+(add-to-list 'auto-mode-alist '("\\.ma[cx]\\'" . maxima-mode))
+(setq org-babel-default-header-args:maxima '((:results . "raw")
+                                                (:exports . "results")
+                                                (:wrap)
+                                                (:prologue . "fpprintprec:4; sind(x) := sin(x*%pi/180); cosd(x) := cos(x*%pi/180);set_tex_environment_default(\"\\\\begin{align}\", \"\\\\end{align}\");")
+                                            ))
+(setq org-babel-default-header-args:jupyter-python '((:kernel . "python3")
+                                                        ;; (:wrap)
+                                                        ;; (:results . "replace raw")
+                                                        (:async . "no")
+                                                        (:pandoc . "t")
+                                                        (:prologue . "from sympy import *\n")
+
+                                            ))
+;; (defvar org-babel-default-inline-header-args
+;;   '((:session . "none") (:results . "replace")
+;;     (:exports . "results") (:hlines . "yes"))
 ;; different bullet point
 ;; (require 'org-superstar)
 ;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
+
+;;####################calender##################################
+;; (require 'org-gcal)
+;; (setq org-gcal-client-id "your-id-foo.apps.googleusercontent.com"
+;;       org-gcal-client-secret "your-secret"
+;;       org-gcal-file-alist '(("your-mail@gmail.com" .  "~/schedule.org")
+;;                             ("another-mail@gmail.com" .  "~/task.org")))
 
 ;latex export related
 
@@ -123,6 +194,10 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (require 'org)
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted" nil))
+(add-to-list 'org-latex-packages-alist '("" "tikz" t))
+(add-to-list 'org-latex-packages-alist '("" "circuitikz" t))
+(add-to-list 'org-latex-packages-alist '("" "gensymb" t))
+
 (setq org-latex-listings 'minted)
 
 (setq org-latex-pdf-process
@@ -148,7 +223,9 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ; The following hook make images to be shown after code blocks are executed.
 
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
-
+(add-hook 'org-babel-after-execute-hook  'org-latex-preview)
+(add-hook 'org-mode-hook 'ansi-color-for-comint-mode-on)
+(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
 ; The following configuration allows code blocks whose language is latex to be evaluated
 
 (org-babel-do-load-languages 'org-babel-load-languages
@@ -172,8 +249,22 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
                         ;;(autosave))
         )))
 
+(defun my/babel-ansi ()
+  (when-let ((beg (org-babel-where-is-src-block-result nil nil)))
+    (save-excursion
+      (goto-char beg)
+      (when (looking-at org-babel-result-regexp)
+	(let ((end (org-babel-result-end))
+	      (ansi-color-context-region nil))
+	  (ansi-color-apply-on-region beg end))))))
 
- (add-to-list 'org-latex-packages-alist '("" "tikz" t))
+(define-minor-mode org-babel-ansi-colors-mode
+  "Apply ANSI color codes to Org Babel results."
+  :global t
+  :after-hook
+  (if org-babel-ansi-colors-mode
+      (add-hook 'org-babel-after-execute-hook #'my/babel-ansi)
+    (remove-hook 'org-babel-after-execute-hook #'my/babel-ansi)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

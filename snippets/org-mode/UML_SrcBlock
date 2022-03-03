@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name:UML_SrcBlock
+# key: <u
+# --
+#+begin_src plantuml :file figures/$1.png
+!theme plain
+skinparam linetype ortho
+allow_mixing
+$0
+#+end_src
