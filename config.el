@@ -18,6 +18,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
+(doom/set-frame-opacity 95)
 (setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'semi-light)
         doom-variable-pitch-font (font-spec :family "Ubuntu") ; inherits `doom-font''s :size
         doom-unicode-font (font-spec :family "Input Mono Narrow" :size 12))
