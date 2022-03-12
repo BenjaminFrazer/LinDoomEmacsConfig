@@ -34,6 +34,7 @@
 ;;(package! pdf-tools)
 (package! org-ref)
 (package! ivy-bibtex)
+(package! csv-mode)
 ;; (package! org-superstar)
 (package! mixed-pitch)
 (package! org-fragtog) ;;
