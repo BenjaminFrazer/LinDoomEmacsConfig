@@ -70,7 +70,11 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
 ;; ################ org reff #############################
+(require 'org-ref)
+(setq org-ref-insert-cite-key "SPC i c")
+(setq org-latex-prefer-user-labels t)
 
+(require 'ivy-bibtex)
 ;; (def-package! ivy-bibtex
 ;;   :after org
 ;;   :init
@@ -100,10 +104,6 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;;     :config
 ;;     ; code to run after loading org-ref
 ;;     )
-
-(require 'org-ref)
-(setq org-ref-insert-cite-key "SPC i c")
-(setq org-latex-prefer-user-labels t)
 
 ;;########################org download################################
 
