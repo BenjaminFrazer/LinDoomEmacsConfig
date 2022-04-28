@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: orgRef_Bibliography_Style
+# --
+[[bibliography:biblio.bib]]
+bibliographystyle:IEEEtran

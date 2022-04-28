@@ -19,6 +19,7 @@
  '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#8CD0D3"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#7F9F7F"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#494949"))
+ '(left-margin 2)
  '(objed-cursor-color "#CC9393")
  '(org-file-apps
    '((remote . emacs)
@@ -36,6 +37,12 @@
      ("style" "manni")
      ("breaklines" "true")
      ("linenos" "true")))
+ '(org-latex-packages-alist
+   '(("" "gensymb" t)
+     ("" "circuitikz" t)
+     ("" "tikz" t)
+     ("" "minted" nil)
+     ("" "xfrac" t)))
  '(org-list-demote-modify-bullet '(("-" . "+") ("1." . "-") ("+" . "*")))
  '(org-startup-with-inline-images t)
  '(org-superstar-item-bullet-alist '((42 . 8226) (43 . 9655) (45 . 9658)))

@@ -21,6 +21,7 @@
 (doom/set-frame-opacity 95)
 (setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'semi-light)
         doom-variable-pitch-font (font-spec :family "Ubuntu") ; inherits `doom-font''s :size
+        doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font" :size 11)
         doom-unicode-font (font-spec :family "Ubuntu" :size 12))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -269,6 +270,26 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
       (add-hook 'org-babel-after-execute-hook #'my/babel-ansi)
     (remove-hook 'org-babel-after-execute-hook #'my/babel-ansi)))
 
+;;############################zen mode ######################
+;; (add-hook 'matlab-mode-hook (lambda () (zencoding-mode 1)))
+
+
+;;############################ MATLAB ########################
+ (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+ (add-to-list
+  'auto-mode-alist
+  '("\\.m$" . matlab-mode))
+ (setq matlab-indent-function t)
+ (setq matlab-shell-command "matlab")
+
+;;######################### LSP ##################################
+(with-eval-after-load 'lsp-mode
+(lsp-register-client
+    (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
+                     :major-modes '(c++-mode)
+                     :remote? t
+                     :server-id 'c++-remote))
+)
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

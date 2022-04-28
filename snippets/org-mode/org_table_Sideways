@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: org_table_Sideways
+# --
+#+ATTR_LATEX: :placement [H] :booktabs t :float sidewaystable :font \tiny
+#+caption: $1
+#+NAME: tab$0

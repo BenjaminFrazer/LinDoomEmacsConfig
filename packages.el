@@ -38,6 +38,7 @@
 ;; (package! org-superstar)
 (package! mixed-pitch)
 (package! org-fragtog) ;;
+(package! matlab-mode)
 ;;
 ;;
 ;(package! texfrag)
