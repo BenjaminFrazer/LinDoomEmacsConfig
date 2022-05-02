@@ -1,12 +1,13 @@
 #+EMAIL:2704250F@student.gla.ac.uk
 #+LATEX_CLASS: article
-#+OPTIONS: H:3 d:nil tags:nil email:t toc:t broken-links:t ^:t #\n:t
+#+OPTIONS: H:3 d:nil tags:nil email:t toc:t broken-links:t ^:t #\n:t ':t
 #+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \pagestyle{fancy}
 #+LATEX_HEADER: \fancyhf{}
-#+LATEX_HEADER: \fancyhead[L]{{\textcolor{gray}\leftmark}}
-#+LATEX_HEADER: \fancyhead[R]{{\textcolor{gray}\thepage}}
+# #+LATEX_HEADER: \fancyhead[L]{{\tiny\textcolor{gray}\leftmark}}
+#+LATEX_HEADER: \fancyhead[R]{{\tiny\textcolor{gray}\leftmark\;}}}
+#+LATEX_HEADER: \cfoot{\thepage}
 #+LATEX_HEADER: \renewcommand{\headrulewidth}{0pt}
 #+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage{xfrac}

@@ -211,6 +211,26 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 ;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
 
+(setq org-latex-toc-command "\\tableofcontents \\clearpage")
+(add-to-list 'org-latex-classes
+             '("IEEEtran"
+               "\\documentclass{IEEEtran}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("thesis"
+               "\\documentclass{MastersDoctoralThesis}"
+               ("\\chapter{%s}" . "\\chapter*{%s}")
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 ;; ############## tkiz previews  ##############################################################
 ;;(set-frame-font (font-spec :family "Ubuntu" :size 30))
 
