@@ -29,7 +29,37 @@
 (setq doom-theme 'doom-vibrant)
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+
+
+;;#################### org roam #########################################################
+(setq org-directory "~/notes/")
+(setq org-roam-directory (file-truename "~/notes/"))
+;;The file-truename function is only necessary when you
+;; use symbolic links inside org-roam-directory: Org-roam
+;; does not resolve symbolic links. One can however instruct
+;; Emacs to always resolve symlinks, at a performance cost:
+(setq find-file-visit-truename t)
+
+(use-package! org-roam-bibtex
+  :after org-roam
+  :config
+  (require 'org-ref)) ; optional: if using Org-ref v2 or v3 citation links
+
+(autoload 'ivy-bibtex "ivy-bibtex" "" t)
+;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
+;; ignores the order of regexp tokens when searching for matching candidates.
+;; Add something like this to your init file:
+(setq ivy-re-builders-alist
+      '((ivy-bibtex . ivy--regex-ignore-order)
+        (t . ivy--regex-plus)))
+
+;; ############################# ivy ###################################################
+(use-package! ivy-prescient
+:after (counsel))
+(setq prescient-sort-full-matches-first t)
+(setq prescient-aggressive-file-save t)
+(setq prescient-filter-method '(literal initialism fuzzy prefix))
+
 
 ;; this allows you to wrap lines for variable pitch fonts
 ;; (add-hook 'org-mode-hook 'visual-line-mode)
