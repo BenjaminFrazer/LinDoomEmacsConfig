@@ -55,7 +55,7 @@
 
 ;; ############################# ivy ###################################################
 (after! ivy
-(setq ivy-sort-max-size 16000)
+(setq ivy-sort-max-size 40000)
 (setq prescient-sort-full-matches-first t)
 (setq prescient-aggressive-file-save t)
 )
