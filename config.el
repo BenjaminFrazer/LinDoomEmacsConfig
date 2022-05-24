@@ -71,42 +71,31 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
-;; ################ org reff #############################
-(require 'org-ref)
-(setq org-ref-insert-cite-key "SPC i c")
-(setq org-latex-prefer-user-labels t)
 
-(require 'ivy-bibtex)
-;; (def-package! ivy-bibtex
-;;   :after org
-;;   :init
-;;   (setq
-;;    ;; bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
-;;    ;;      				 "~/Dropbox/emacs/bibliography/dei.bib"
-;;    ;;      				 "~/Dropbox/emacs/bibliography/master.bib"
-;;    ;;      				 "~/Dropbox/emacs/bibliography/archive.bib")
-;;    ;;      bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
-;;    ;;      bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-;; 	bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+(use-package! org-ref
+        :after org
+        :init
+        (setq
+        bibtex-completion-bibliography '("~/bibtex/My-Library.bib")
+        bibtex-completion-library-path '("/home/benjaminf/Literature/")
+        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
 
-;; 	bibtex-completion-additional-search-fields '(keywords)
-;; 	bibtex-completion-display-formats
-;; 	'((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-;; 	  (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-;; 	  (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-;; 	  (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-;; 	  (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-;; 	bibtex-completion-pdf-open-function
-;; 	(lambda (fpath)
-;; 	  (call-process "open" nil 0 nil fpath))))
-; (def-package! org-ref
-;;     :after org
-;;     :init
-;;     ; code to run before loading org-ref
-;;     :config
-;;     ; code to run after loading org-ref
-;;     )
+        org-ref-insert-cite-key "SPC i c"
+        org-latex-prefer-user-labels t
 
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-pdf-field "file"
+        bibtex-completion-display-formats
+        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+                (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+                (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+                (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+                (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+        bibtex-completion-pdf-open-function
+        (lambda (fpath)
+          (call-process "open" nil 0 nil fpath))
+        ))
 ;;########################org download################################
 
 (require 'org-download)
