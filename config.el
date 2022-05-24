@@ -34,6 +34,7 @@
 ;;#################### org roam #########################################################
 (setq org-directory "~/notes/")
 (setq org-roam-directory (file-truename "~/notes/"))
+(setq bibtex-completion-additional-search-fields '(keywords, file))
 ;;The file-truename function is only necessary when you
 ;; use symbolic links inside org-roam-directory: Org-roam
 ;; does not resolve symbolic links. One can however instruct
@@ -45,6 +46,9 @@
   :config
   (require 'org-ref)) ; optional: if using Org-ref v2 or v3 citation links
 
+(after! org-roam
+  (org-roam-bibtex-mode))
+
 (autoload 'ivy-bibtex "ivy-bibtex" "" t)
 ;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
 ;; ignores the order of regexp tokens when searching for matching candidates.
@@ -53,11 +57,22 @@
       '((ivy-bibtex . ivy--regex-ignore-order)
         (t . ivy--regex-plus)))
 
+(setq org-roam-capture-templates
+      '(("r" "bibliography reference" plain
+         (file "~/.doom.d/capture_templates/org_roam/literature.org") ; <-- template store in a separate file
+         :target
+         (file+head "references/${citekey}.org" "#+title: ${title}\n")
+         :unnarrowed t)))
+
 ;; ############################# ivy ###################################################
 (after! ivy
 (setq ivy-sort-max-size 40000)
 (setq prescient-sort-full-matches-first t)
 (setq prescient-aggressive-file-save t)
+(ivy-set-actions
+ 'ivy-bibtex
+ '(("p" ivy-bibtex-open-any "Open PDF, URL, or DOI" ivy-bibtex-open-any)
+   ("e" ivy-bibtex-edit-notes "Edit notes" ivy-bibtex-edit-notes)))
 )
 
 
@@ -107,8 +122,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
         :init
         (setq
         bibtex-completion-bibliography '("~/bibtex/My-Library.bib")
-        bibtex-completion-library-path '("/home/benjaminf/Literature/")
-        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+        ;; bibtex-completion-library-path '("~/Literature/NILM/")
+        bibtex-completion-notes-path "~/notes/bibliography/"
         bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
 
         org-ref-insert-cite-key "SPC i c"
@@ -122,9 +137,9 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
                 (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
                 (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
                 (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-        bibtex-completion-pdf-open-function
-        (lambda (fpath)
-          (call-process "open" nil 0 nil fpath))
+        ;; bibtex-completion-pdf-open-function
+        ;; (lambda (fpath)
+        ;;   (call-process "open" nil 0 nil fpath))
         ))
 ;;########################org download################################
 
