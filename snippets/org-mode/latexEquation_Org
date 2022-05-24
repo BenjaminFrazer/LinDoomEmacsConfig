@@ -3,5 +3,5 @@
 # --
 #+NAME: $1
 \\begin{align}
-$2
+$0
 \\end{align}
