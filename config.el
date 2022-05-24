@@ -54,9 +54,11 @@
         (t . ivy--regex-plus)))
 
 ;; ############################# ivy ###################################################
+(after! ivy
 (setq ivy-sort-max-size 16000)
 (setq prescient-sort-full-matches-first t)
 (setq prescient-aggressive-file-save t)
+)
 
 
 ;; this allows you to wrap lines for variable pitch fonts
