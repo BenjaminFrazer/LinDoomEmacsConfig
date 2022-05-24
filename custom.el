@@ -50,7 +50,10 @@
  '(python-shell-interpreter "ipython")
  '(rustic-ansi-faces
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCDC"])
- '(safe-local-variable-values '((line-spacing . 0.1) (line-spacing . 0.2)))
+ '(safe-local-variable-values
+   '((org-latex-image-default-width . 0\.4\\\\textwidth)
+     (line-spacing . 0.1)
+     (line-spacing . 0.2)))
  '(vc-annotate-background "#3F3F3F")
  '(vc-annotate-color-map
    (list
