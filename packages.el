@@ -32,8 +32,19 @@
 ;(package! builtin-package-2 :recipe (:repo "myfork/package"))
 
 ;;(package! pdf-tools)
-(package! org-ref)
 (package! ivy-bibtex)
+(package! org-ref)
+(package! org-roam-bibtex
+  :recipe (:host github :repo "org-roam/org-roam-bibtex"))
+(unpin! org-roam)
+
+; (def-package! org-ref
+;;     :after org
+;;     :init
+;;     ; code to run before loading org-ref
+;;     :config
+;;     ; code to run after loading org-ref
+;;     )
 (package! csv-mode)
 ;; (package! org-superstar)
 (package! mixed-pitch)
