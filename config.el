@@ -131,6 +131,10 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
  '((asymptote. t)) ; this line activates maxima
  '((jupyter . t))
  )
+
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 2)
 ;org bullets related
