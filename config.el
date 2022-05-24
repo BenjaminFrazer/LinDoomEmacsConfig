@@ -138,6 +138,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 2)
 ;org bullets related
+(setq org-superstar-headline-bullets-list '(" " " " "◉" "○"))
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
