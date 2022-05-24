@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: Bens Org template
 # --
-# -*- line-spacing: 0.1; -*-
+* $0
+* ⚙ Configuration :noexport:
 #+TITLE: ${1:`
 (string-join
  (mapcar #'capitalize
@@ -21,5 +22,8 @@
 #+STARTUP:  overview
 #+INCLUDE: "~/.doom.d/orgReportHeader.org"
 #+OPTIONS: H:3 creator:t d:nil tags:nil email:t toc:t broken-links:t ^:nil #\n:t
+#+TODO: TODO | DONE ⚙
 
-$0
+# Local Variables:
+# line-spacing: 0.2
+# End:

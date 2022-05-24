@@ -122,6 +122,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;;(add-to-list 'yas-snippet-dirs "C:/Users/b0628/.doom.d/snippets/org-mode")
 (define-key yas-minor-mode-map [(tab)] nil)
 (define-key yas-minor-mode-map (kbd "TAB") nil)
+
+;;####################org mode ###########################################
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t)) ; this line activates ditaa
