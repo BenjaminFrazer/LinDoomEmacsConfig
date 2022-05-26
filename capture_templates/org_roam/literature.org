@@ -1,12 +1,11 @@
-#+PROPERTY: type
 #+FILETAGS: %^{keywords}, %^{entry-type}, literature, draft
 
 * Overview
 - year :: %^{year}
-- authors ::  %^{authors}\n
-- CiteKey :: %{citekey}
-- URL :: %^{url}
-- PDF :: %{file}
+- authors ::  %^{author}
+- CiteKey :: %^{citekey}
+- PDF :: [[%^{file}][%\5]]
+- DOI :: %^{doi}\n
 
 *Abstract:*
 /%^{abstract}\n/
@@ -14,14 +13,16 @@
 fullcite:%\5
 
 :metadata:
+- Date Created :: %t
+- URL :: %^{url}
+
+("doi" "year" "abstract" "keywords" "title" "citekey" "entry-type" "date" "pdf?" "note?" "file" "author" "editor" "author-abbrev" "editor-abbrev" "author-or-editor-abbrev")
 :end:
 
 * Notes
 :PROPERTIES:
-:Custom_ID: %^{citekey}
-:URL: %^{url}
-:AUTHOR: %^{author-or-editor}
-:NOTER_DOCUMENT: %^{file}
+:Custom_ID: %\5
+:NOTER_DOCUMENT: %\6
 :END:
 
 - %?
@@ -36,3 +37,7 @@ fullcite:%\5
 # Local Variables:
 # line-spacing: 0.2
 # End:
+
+** Bibliography :ignore:
+bibliography:~/bibtex/My-Library.bib
+bibliographystyle:IEEEtran
