@@ -1,26 +1,36 @@
-#+PROPERTY: type %^{entry-type}
-#+FILETAGS: %^{keywords}
-#+PROPERTY: authors %^{author}
+#+PROPERTY: type
+#+FILETAGS: %^{keywords}, %^{entry-type}, literature, draft
 
-* %^{title}
+* Overview
+- year :: %^{year}
+- authors ::  %^{authors}\n
+- CiteKey :: %{citekey}
+- URL :: %^{url}
+- PDF :: %{file}
+
+*Abstract:*
+/%^{abstract}\n/
+
+fullcite:%\5
+
+:metadata:
+:end:
+
+* Notes
 :PROPERTIES:
 :Custom_ID: %^{citekey}
 :URL: %^{url}
 :AUTHOR: %^{author-or-editor}
-:NOTER_DOCUMENT: %^{file}  ; <== special file keyword: if more than one filename
-:NOTER_PAGE:               ;     is available, the user will be prompted to choose
+:NOTER_DOCUMENT: %^{file}
 :END:
 
-*Description:*
-In this %\1 %\3 concluded that %?
+- %?
 
-fullcite:%\1
 * ⚙ Configuration :ignore:
-#+TITLE: Literature
 #+STARTUP: latexpreview
 #+STARTUP:  overview
 #+INCLUDE: "~/.doom.d/orgReportHeader.org"
-#+OPTIONS: H:3 creator:t d:nil tags:nil email:t toc:t broken-links:t ^:nil #\n:t
+#+OPTIONS: H:3 creator:t d:nil tags:nil email:t toc:t broken-links:t ^:t #\n:t
 #+TODO: TODO | DONE ⚙
 
 # Local Variables:
