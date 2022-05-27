@@ -1,28 +1,26 @@
 #+FILETAGS: %^{keywords}, %^{entry-type}, literature, draft
 
-* Overview
-- year :: %^{year}
-- authors ::  %^{author}
-- CiteKey :: %^{citekey}
-- PDF :: [[%^{file}][%\5]]
-- DOI :: %^{doi}\n
+* Publication Overview
+- PDF :: [[%^{file}][%\8]]
+- DOI :: %^{doi} \\
+- Year :: %^{year}
+- Authors ::  %^{author}
 
 *Abstract:*
-/%^{abstract}\n/
+/%^{abstract}/
 
-fullcite:%\5
+cite:%\8
 
 :metadata:
 - Date Created :: %t
+- CiteKey :: %^{citekey}
 - URL :: %^{url}
-
-("doi" "year" "abstract" "keywords" "title" "citekey" "entry-type" "date" "pdf?" "note?" "file" "author" "editor" "author-abbrev" "editor-abbrev" "author-or-editor-abbrev")
 :end:
 
 * Notes
 :PROPERTIES:
-:Custom_ID: %\5
-:NOTER_DOCUMENT: %\6
+:Custom_ID: %\8
+:NOTER_DOCUMENT: %\3
 :END:
 
 - %?
@@ -31,7 +29,7 @@ fullcite:%\5
 #+STARTUP: latexpreview
 #+STARTUP:  overview
 #+INCLUDE: "~/.doom.d/orgReportHeader.org"
-#+OPTIONS: H:3 creator:t d:nil tags:nil email:t toc:t broken-links:t ^:t #\n:t
+#+OPTIONS: H:3 creator:t d:nil tags:nil email:t toc:nil broken-links:t ^:t #\n:t
 #+TODO: TODO | DONE ⚙
 
 # Local Variables:
@@ -39,5 +37,5 @@ fullcite:%\5
 # End:
 
 ** Bibliography :ignore:
-bibliography:~/bibtex/My-Library.bib
+bibliography:~/literature/My-Library.bib
 bibliographystyle:IEEEtran

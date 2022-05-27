@@ -47,7 +47,13 @@
   (require 'org-ref)) ; optional: if using Org-ref v2 or v3 citation links
 
 (after! org-roam
-  (org-roam-bibtex-mode))
+  (org-roam-bibtex-mode)
+  (add-to-list 'orb-preformat-keywords "title")
+  (add-to-list 'orb-preformat-keywords "keywords")
+  (add-to-list 'orb-preformat-keywords "abstract")
+  (add-to-list 'orb-preformat-keywords "year")
+  (add-to-list 'orb-preformat-keywords "doi")
+  )
 
 (autoload 'ivy-bibtex "ivy-bibtex" "" t)
 ;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
@@ -61,14 +67,16 @@
       '(("r" "bibliography reference" plain
          (file "~/.doom.d/capture_templates/org_roam/literature.org") ; <-- template store in a separate file
          :target
-         (file+head "references/${citekey}.org" "#+title: ${title}\n")
-         :unnarrowed t)))
+         (file+head "literature/${citekey}.org" "#+title: \"\\Notes on ${title}\\\"")
+         :unnarrowed t)
+        ))
 
 ;; ############################# ivy ###################################################
 (after! ivy
 (setq ivy-sort-max-size 40000)
 (setq prescient-sort-full-matches-first t)
 (setq prescient-aggressive-file-save t)
+(setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
 (ivy-set-actions
  'ivy-bibtex
  '(("p" ivy-bibtex-open-any "Open PDF, URL, or DOI" ivy-bibtex-open-any)
@@ -114,6 +122,11 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 (setq org-link-file-path-type 'relative)
 
+;; ################ noter config ########################
+(setq org-noter-always-create-frame nil)
+(setq org-noter-notes-search-path "~/notes/literature/")
+
+
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
 
@@ -121,11 +134,11 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
         :after org
         :init
         (setq
-        bibtex-completion-bibliography '("~/bibtex/My-Library.bib")
+        bibtex-completion-bibliography '("~/literature/My-Library.bib")
         ;; bibtex-completion-library-path '("~/Literature/NILM/")
         bibtex-completion-notes-path "~/notes/bibliography/"
         bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-
+        bibtex-completion-library-path "~/literature/"
         org-ref-insert-cite-key "SPC i c"
         org-latex-prefer-user-labels t
 
