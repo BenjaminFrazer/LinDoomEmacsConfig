@@ -67,7 +67,7 @@
       '(("r" "bibliography reference" plain
          (file "~/.doom.d/capture_templates/org_roam/literature.org") ; <-- template store in a separate file
          :target
-         (file+head "literature/${citekey}.org" "#+title: \"\\Notes on ${title}\\\"")
+         (file+head "literature/${citekey}.org" "#+title: Notes on \"\\${title}\\\"")
          :unnarrowed t)
         ))
 
