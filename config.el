@@ -8,6 +8,12 @@
 (setq user-full-name "Ben Frazer"
       user-mail-address "benjamin.frazer.1997@gmail.com")
 
+(setq safe-local-variable-values
+   '((org-image-actual-width . 800)
+     (org-latex-image-default-width . 0\.4\\\\textwidth)
+     (line-spacing . 0.1)
+     (line-spacing . 0.2)))
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
