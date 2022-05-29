@@ -69,7 +69,11 @@
          :target
          (file+head "literature/${citekey}.org" "#+title: Notes on \"\\${title}\\\"")
          :unnarrowed t)
-        ))
+      ("d" "default" plain "%?"
+        :target (file+head "roam/%<%Y%m%d%H%M%S>-${slug}.org"
+                        "#+title: ${title}\n")
+        :unnarrowed t))
+      )
 
 ;; ############################# ivy ###################################################
 (after! ivy
@@ -125,7 +129,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;; ################ noter config ########################
 (setq org-noter-always-create-frame nil)
 (setq org-noter-notes-search-path "~/notes/literature/")
-
+(setq org-noter-doc-split-fraction '(0.7 . 0.7))
 
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
