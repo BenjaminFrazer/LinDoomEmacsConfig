@@ -75,7 +75,7 @@
     (cons 320 "#695b5b")
     (cons 340 "#4F4F4F")
     (cons 360 "#4F4F4F")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
 
 
 (custom-set-faces

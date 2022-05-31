@@ -45,6 +45,72 @@
 ;; use symbolic links inside org-roam-directory: Org-roam
 ;; does not resolve symbolic links. One can however instruct
 ;; Emacs to always resolve symlinks, at a performance cost:
+;;
+
+;;#################### org agenda #########################################################
+(setq org-agenda-files '("~/gtd/inbox.org"
+                         "~/gtd/gtd.org"
+                         "~/gtd/tickler.org"))
+
+
+;;#################### org capture templates #########################################################
+(setq org-capture-templates '(
+                              ("t" "Todo [inbox]" entry
+                                (file+headline +org-capture-todo-file "Inbox")
+                                "* [ ] %?\n%i\n%a" :prepend t)
+
+                              ;; ("n" "Personal notes" entry
+                              ;;   (file+headline +org-capture-notes-file "Inbox")
+                              ;;   "* %u %?\n%i\n%a" :prepend t)
+
+                              ;; ("j" "Journal" entry
+                              ;;   (file+olp+datetree +org-capture-journal-file)
+                              ;;   "* %U %?\n%i\n%a" :prepend t)
+
+                              ("p" "Templates for projects" entry)
+                                (file+headline +org-capture-projects-file)
+                              ;;   "* PROJ %?\n%i\n%a" :prepend t)
+
+                              ;; ("pt" "Project-local todo" entry
+                              ;;   (file+headline +org-capture-project-todo-file "Inbox")
+                              ;;   "* TODO %?\n%i\n%a" :prepend t)
+
+                              ;; ("pn" "Project-local notes" entry
+                              ;;   (file+headline +org-capture-project-notes-file "Inbox")
+                              ;;   "* %U %?\n%i\n%a" :prepend t)
+                              ;; ("pc" "Project-local changelog" entry
+                              ;;   (file+headline +org-capture-project-changelog-file "Unreleased")
+                              ;;   "* %U %?\n%i\n%a" :prepend t)
+                              ;; ("o" "Centralized templates for projects")
+                              ;; ("ot" "Project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n %a" :heading "Tasks" :prepend nil)
+                              ;; ("on" "Project notes" entry #'+org-capture-central-project-notes-file "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
+                              ;; ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))
+      ))
+
+(after! org
+(add-to-list 'org-todo-keywords
+             '(sequence  "|" "⚙"))
+(add-to-list 'org-todo-keywords
+             '(sequence "IN" "|"))
+
+;; This is so I cannot set a headline to DONE if children aren’t DONE.
+(setq-default org-enforce-todo-dependencies t)
+
+(add-to-list 'org-todo-keyword-faces '("IN" :foreground "orange" :weight bold))
+)
+
+(setq org-capture-projects-file "~/gtd/gtd.org")
+
+(setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 1)
+                           ("~/gtd/someday.org" :maxlevel . 1)
+                           ("~/gtd/tickler.org" :maxlevel . 1)))
+
+(after! org
+  (custom-set-faces!
+    '(org-drawer :inherit org-document-info-keyword :foreground unspecified :height .8)
+    '(org-meta-line :inherit org-document-info-keyword :foreground unspecified :height .9)))
+
+
 (setq find-file-visit-truename t)
 
 (use-package! org-roam-bibtex
