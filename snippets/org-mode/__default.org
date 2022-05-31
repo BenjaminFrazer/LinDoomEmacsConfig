@@ -1,8 +1,6 @@
 # -*- mode: snippet -*-
 # name: Bens Org template
 # --
-* $0
-* ⚙ Configuration :noexport:
 #+TITLE: ${1:`
 (string-join
  (mapcar #'capitalize
@@ -18,11 +16,13 @@
           "[^[:word:]0-9]+"
           )) " " )
 `}
+
+* $0
+* ⚙ Configuration :ignore:
 #+STARTUP: latexpreview
 #+STARTUP:  overview
 #+INCLUDE: "~/.doom.d/orgReportHeader.org"
 #+OPTIONS: H:3 creator:t d:nil tags:nil email:t toc:t broken-links:t ^:nil #\n:t
-#+TODO: TODO | DONE ⚙
 
 # Local Variables:
 # line-spacing: 0.2
