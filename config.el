@@ -31,6 +31,16 @@
 ;; change `org-directory'. It must be set before org loads!
 
 
+;; TODO WIP
+;; (defun my-set-margins ()
+;;   "Set margins in current buffer."
+;;   (setq left-margin 100)
+;;   ;; (setq right-margin-width 24)
+;;   )
+;; (add-hook 'text-mode-hook 'my-set-margins)
+;; (add-hook 'emacs-lisp-mode-hook 'my-set-margins)
+;; (add-hook 'bibtex-mode-hook 'my-set-margins)
+
 ;;#################### org roam #########################################################
 (setq org-directory "~/notes/")
 (setq org-roam-directory (file-truename "~/notes/"))
