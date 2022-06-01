@@ -15,6 +15,10 @@
  '(fci-rule-color "#4F4F4F")
  '(gc-cons-threshold 203554432)
  '(highlight-tail-colors ((("#454845") . 0) (("#474f4f") . 20)))
+ '(ignored-local-variable-values
+   '((org-image-actual-width . 800)
+     (line-spacing . 0.1)
+     (line-spacing . 0.2)))
  '(ispell-program-name '"hunspell.exe")
  '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#8CD0D3"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#7F9F7F"))
@@ -50,10 +54,6 @@
  '(python-shell-interpreter "ipython")
  '(rustic-ansi-faces
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCDC"])
- '(safe-local-variable-values
-   '((org-latex-image-default-width . 0\.4\\\\textwidth)
-     (line-spacing . 0.1)
-     (line-spacing . 0.2)))
  '(vc-annotate-background "#3F3F3F")
  '(vc-annotate-color-map
    (list
@@ -75,7 +75,7 @@
     (cons 320 "#695b5b")
     (cons 340 "#4F4F4F")
     (cons 360 "#4F4F4F")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
 
 
 (custom-set-faces
