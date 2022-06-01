@@ -23,6 +23,8 @@ cite:%\8
 :NOTER_DOCUMENT: %\3
 :END:
 
+[[elisp:org-noter][Start-Noter]]
+[[elisp:org-noter-kill-session][Kill-Noter]]
 - %?
 
 * ⚙ Configuration :ignore:
