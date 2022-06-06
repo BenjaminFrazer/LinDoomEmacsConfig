@@ -59,16 +59,20 @@
 ;;
 
 ;;#################### org agenda #########################################################
+
+(after! org
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/gtd.org"
-                         "~/gtd/tickler.org"))
+                         "~/gtd/tickler.org")))
 
 
 ;;#################### org capture templates #########################################################
+(setq +org-capture-todo-file "~/gtd/inbox.org")
+(after! org
 (setq org-capture-templates '(
                               ("t" "Todo [inbox]" entry
-                                (file+headline +org-capture-todo-file "Inbox")
-                                "* [ ] %?\n%i\n%a" :prepend t)
+                                (file +org-capture-todo-file)
+                                "* IN %?\n%i\n%a" :prepend t)
 
                               ;; ("n" "Personal notes" entry
                               ;;   (file+headline +org-capture-notes-file "Inbox")
@@ -78,9 +82,13 @@
                               ;;   (file+olp+datetree +org-capture-journal-file)
                               ;;   "* %U %?\n%i\n%a" :prepend t)
 
-                              ("p" "Templates for projects" entry)
-                                (file+headline +org-capture-projects-file)
-                              ;;   "* PROJ %?\n%i\n%a" :prepend t)
+                              ("d" "Templates for tickler" entry
+                                (file "~/gtd/tickler.org")
+                                "* TODO %?\n%i\n%a" :prepend t)
+
+                              ("p" "Templates for projects" entry
+                                (file +org-capture-projects-file)
+                                "* PROJ %?\n%i\n%a" :prepend t)
 
                               ;; ("pt" "Project-local todo" entry
                               ;;   (file+headline +org-capture-project-todo-file "Inbox")
@@ -96,25 +104,35 @@
                               ;; ("ot" "Project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n %a" :heading "Tasks" :prepend nil)
                               ;; ("on" "Project notes" entry #'+org-capture-central-project-notes-file "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
                               ;; ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))
-      ))
+      )))
 
 (after! org
 (add-to-list 'org-todo-keywords
-             '(sequence  "|" "⚙"))
+             '(sequence  "⚙"))
 (add-to-list 'org-todo-keywords
-             '(sequence "IN" "|"))
+             '(sequence "IN" "TODO" "PROJ" "|" "DONE"))
 
 ;; This is so I cannot set a headline to DONE if children aren’t DONE.
 (setq-default org-enforce-todo-dependencies t)
 
 (add-to-list 'org-todo-keyword-faces '("IN" :foreground "orange" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("PROJ" :foreground "purple" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("NEXT" :foreground "green" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("SENT" :foreground "green" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("RECIEVED" :foreground "purple" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("UNSENT" :foreground "green" :weight bold))
+;; (add-to-list 'org-todo-keyword-faces '("TODO" :foreground "darkgreen" :weight bold))
 )
 
 (setq org-capture-projects-file "~/gtd/gtd.org")
 
-(setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 1)
-                           ("~/gtd/someday.org" :maxlevel . 1)
-                           ("~/gtd/tickler.org" :maxlevel . 1)))
+(after! org
+  (setq org-refile-targets '(
+                        (nil :maxlevel . 2)             ; refile to headings in the current buffer
+                        ("~/gtd/gtd.org" :maxlevel . 2)
+                        ("~/gtd/someday.org" :maxlevel . 2)
+                        ("~/gtd/tickler.org" :maxlevel . 2))))
+(setq org-refile-allow-creating-parent-nodes (quote confirm))
 
 (after! org
   (custom-set-faces!
@@ -212,7 +230,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;; ################ noter config ########################
 (setq org-noter-always-create-frame nil)
 (setq org-noter-notes-search-path "~/notes/literature/")
-(setq org-noter-doc-split-fraction '(0.7 . 0.7))
+(setq org-noter-doc-split-fraction '(0.6 . 0.6))
 
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
@@ -451,6 +469,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
                      :remote? t
                      :server-id 'c++-remote))
 )
+
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
