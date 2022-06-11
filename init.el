@@ -197,7 +197,7 @@
 
        :config
        literate
-       (default +bindings +smartparens))
+       (default +bindings +smartparents))
 
 (use-package-hook! evil
   :pre-init

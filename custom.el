@@ -75,7 +75,9 @@
     (cons 320 "#695b5b")
     (cons 340 "#4F4F4F")
     (cons 360 "#4F4F4F")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(warning-suppress-log-types '((ox-pandoc) (ox-pandoc)))
+ '(warning-suppress-types '((ox-pandoc))))
 
 
 (custom-set-faces
@@ -83,9 +85,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-drawer ((t (:inherit org-document-info-keyword :foreground unspecified :height 0.8))))
  '(org-level-1 ((t (:inherit outline-1 :height 1.5 :weight semi-bold))))
  '(org-level-2 ((t (:inherit outline-2 :height 1.3 :weight semi-bold))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.2 :weight semi-bold))))
  '(org-level-4 ((t (:inherit outline-4 :height 1.0 :weight semi-bold))))
  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
- '(org-link ((t (:inherit link :foreground "maroon")))))
+ '(org-link ((t (:inherit link :foreground "maroon"))))
+ '(org-meta-line ((t (:inherit org-document-info-keyword :foreground unspecified :height 0.9)))))

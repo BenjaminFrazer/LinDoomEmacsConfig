@@ -49,6 +49,7 @@
 ;; (add-hook 'bibtex-mode-hook 'my-set-margins)
 
 ;;#################### org roam #########################################################
+
 (setq org-directory "~/notes/")
 (setq org-roam-directory (file-truename "~/notes/"))
 (setq bibtex-completion-additional-search-fields '(keywords, file))
@@ -58,11 +59,17 @@
 ;; Emacs to always resolve symlinks, at a performance cost:
 ;;
 
+(after! org
+        (add-to-list 'company-backends 'company-capf)
+        (setq completion-ignore-case t))
+
 ;;#################### org agenda #########################################################
 
 (after! org
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/gtd.org"
+                         "~/gtd/people.org"
+                         "~/gtd/waitingfor.org"
                          "~/gtd/tickler.org")))
 
 
@@ -116,6 +123,8 @@
 (setq-default org-enforce-todo-dependencies t)
 
 (add-to-list 'org-todo-keyword-faces '("IN" :foreground "orange" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("SCHED" :foreground "dark cyan" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("READ" :foreground "blue" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("PROJ" :foreground "purple" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("NEXT" :foreground "green" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("SENT" :foreground "green" :weight bold))
@@ -131,6 +140,8 @@
                         (nil :maxlevel . 2)             ; refile to headings in the current buffer
                         ("~/gtd/gtd.org" :maxlevel . 2)
                         ("~/gtd/someday.org" :maxlevel . 2)
+                        ("~/gtd/waitingfor.org" :maxlevel . 2)
+                        ("~/gtd/people.org" :maxlevel . 2)
                         ("~/gtd/tickler.org" :maxlevel . 2))))
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
@@ -149,12 +160,62 @@
 
 (after! org-roam
   (org-roam-bibtex-mode)
+  (setq orb-process-file-keyword nil)
   (add-to-list 'orb-preformat-keywords "title")
   (add-to-list 'orb-preformat-keywords "keywords")
   (add-to-list 'orb-preformat-keywords "abstract")
   (add-to-list 'orb-preformat-keywords "year")
   (add-to-list 'orb-preformat-keywords "doi")
   )
+
+;; overwrite this function to deal with relative paths in the 'file' property of a bibtex file
+(after! org-ref
+        (defun bibtex-completion-find-pdf-in-field (key-or-entry)
+        "Return the path of the PDF specified in the field `bibtex-completion-pdf-field' if that file exists.
+        Returns nil if no file is specified, or if the specified file
+        does not exist, or if `bibtex-completion-pdf-field' is nil."
+        (when bibtex-completion-pdf-field
+        (let* ((entry (if (stringp key-or-entry)
+                        (bibtex-completion-get-entry1 key-or-entry t)
+                        key-or-entry))
+                (value (bibtex-completion-get-value bibtex-completion-pdf-field entry)))
+        (cond
+        ((not value) nil)         ; Field not defined.
+        ((f-file? value) (list value))   ; A bare full path was found.
+        ;; bf I changed this bit so that it didnt call f-filename on value
+        ;; ((-any 'f-file? (--map (f-join it (f-filename value)) (-flatten bibtex-completion-library-path))) (-filter 'f-file? (--map (f-join it (f-filename value)) (-flatten bibtex-completion-library-path))))
+        ((-any 'f-file? (--map (f-join it value) (-flatten bibtex-completion-library-path))) (-filter 'f-file? (--map (f-join it value) (-flatten bibtex-completion-library-path))))
+        (t                               ; Zotero/Mendeley/JabRef/Calibre format:
+                (let ((value (replace-regexp-in-string "\\([^\\]\\)[;,]" "\\1\^^" value)))
+                (cl-loop  ; Looping over the files:
+                for record in (s-split "\^^" value)
+                                                ; Replace unescaped colons by field separator:
+                for record = (replace-regexp-in-string "\\([^\\]\\|^\\):" "\\1\^_" record)
+                                                ; Unescape stuff:
+                for record = (replace-regexp-in-string "\\\\\\(.\\)" "\\1" record)
+                                                ; Now we can safely split:
+                for record = (s-split "\^_" record)
+                for file-name = (nth 0 record)
+                for path = (or (nth 1 record) "")
+                for paths = (if (s-match "^[A-Z]:" path)
+                                (list path)                 ; Absolute Windows path
+                                                ; Something else:
+                                (append
+                                (list
+                                path
+                                file-name
+                                (f-join (f-root) path) ; Mendeley #105
+                                (f-join (f-root) path file-name)) ; Mendeley #105
+                                (--map (f-join it path)
+                                        (-flatten bibtex-completion-library-path)) ; Jabref #100
+                                (--map (f-join it path file-name)
+                                        (-flatten bibtex-completion-library-path)))) ; Jabref #100
+                for result = (-first (lambda (path)
+                                        (if (and (not (s-blank-str? path))
+                                                (f-exists? path))
+                                        path nil)) paths)
+                if result collect result)))))))
+)
 
 (autoload 'ivy-bibtex "ivy-bibtex" "" t)
 ;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
@@ -172,7 +233,8 @@
          :unnarrowed t)
       ("d" "default" plain "%?"
         :target (file+head "roam/%<%Y%m%d%H%M%S>-${slug}.org"
-                        "#+title: ${title}\n")
+                        "#+title: ${title}\n
+#+STARTUP: latexpreview  ")
         :unnarrowed t))
       )
 
@@ -234,8 +296,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 
 ;; ################ file template ########################
 (set-file-template! "/*\\.org$" :trigger "__default.org" :mode 'org-mode)
-
-(use-package! org-ref
+(use-package! ivy-bibtex
         :after org
         :init
         (setq
@@ -243,7 +304,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
         ;; bibtex-completion-library-path '("~/Literature/NILM/")
         bibtex-completion-notes-path "~/notes/bibliography/"
         bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-        bibtex-completion-library-path "~/literature/"
+        bibtex-completion-library-path "~/google-drive/literature/"
+        org-ref-bibtex-pdf-download-dir "~/google-drive/literature/"
         org-ref-insert-cite-key "SPC i c"
         org-latex-prefer-user-labels t
 

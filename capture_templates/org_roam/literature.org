@@ -1,7 +1,7 @@
 #+FILETAGS: %^{keywords}, %^{entry-type}, literature, draft
 
 * Publication Overview
-- PDF :: [[%^{file}][%\8]]
+- PDF :: [[~/literature/%^{file}][%\8]]
 - DOI :: %^{doi} \\
 - Year :: %^{year}
 - Authors ::  %^{author}
@@ -20,7 +20,7 @@ cite:%\8
 * Notes
 :PROPERTIES:
 :Custom_ID: %\8
-:NOTER_DOCUMENT: %\3
+:NOTER_DOCUMENT: ~/literature/%\3
 :END:
 
 [[elisp:org-noter][Start-Noter]]
