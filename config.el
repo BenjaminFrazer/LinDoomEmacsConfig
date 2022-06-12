@@ -71,6 +71,17 @@
                          "~/gtd/people.org"
                          "~/gtd/waitingfor.org"
                          "~/gtd/tickler.org")))
+;; ignores scheduled todo items from todo list in aganda view
+(setq org-agenda-todo-ignore-scheduled t)
+(setq org-agenda-skip-function-global
+      '(org-agenda-skip-entry-if 'todo '("DONE" "BLOCK" "TODO")))
+
+;;#################### org super agenda #########################################################
+;; (use-package! org-super-agenda
+;;   :after org-agenda
+;;   :config
+;;   (setq org-super-agenda-groups '((:auto-tags t :discard (:todo "READ"))))
+;;   (org-super-agenda-mode))
 
 
 ;;#################### org capture templates #########################################################
@@ -127,6 +138,7 @@
 (add-to-list 'org-todo-keyword-faces '("READ" :foreground "blue" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("PROJ" :foreground "purple" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("NEXT" :foreground "green" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("BLOCK" :foreground "red" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("SENT" :foreground "green" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("RECIEVED" :foreground "purple" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("UNSENT" :foreground "green" :weight bold))
