@@ -32,7 +32,7 @@
 #+LATEX_HEADER_EXTRA: \AfterEndEnvironment{minted}{\end{mdframed}}
 #+LATEX_HEADER: \usepackage{sourcecodepro}
 #+LATEX_HEADER: \definecolor{deepblue}{rgb}{0.0, 0.18, 0.39}
-#+LATEX_HEADER:\setlength{\parindent}{0}
+# #+LATEX_HEADER:\setlength{\parindent}{0}
 #+LATEX_HEADER: \usepackage{parskip}
 #+LATEX_HEADER: \usepackage{enumitem}
 #+LATEX_HEADER: \setlist{noitemsep}

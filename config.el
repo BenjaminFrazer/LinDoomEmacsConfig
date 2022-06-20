@@ -68,13 +68,14 @@
 (after! org
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/gtd.org"
+                         "~/gtd/gtd_household.org"
                          "~/gtd/people.org"
                          "~/gtd/waitingfor.org"
                          "~/gtd/tickler.org")))
 ;; ignores scheduled todo items from todo list in aganda view
 (setq org-agenda-todo-ignore-scheduled t)
 (setq org-agenda-skip-function-global
-      '(org-agenda-skip-entry-if 'todo '("DONE" "BLOCK" "TODO")))
+      '(org-agenda-skip-entry-if 'todo '("DONE" "BLOCK" "TODO" )))
 
 ;;#################### org super agenda #########################################################
 ;; (use-package! org-super-agenda
@@ -88,7 +89,7 @@
 (setq +org-capture-todo-file "~/gtd/inbox.org")
 (after! org
 (setq org-capture-templates '(
-                              ("t" "Todo [inbox]" entry
+                              ("i" "inbox" entry
                                 (file +org-capture-todo-file)
                                 "* IN %?\n%i\n%a" :prepend t)
 
@@ -137,6 +138,7 @@
 (add-to-list 'org-todo-keyword-faces '("SCHED" :foreground "dark cyan" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("READ" :foreground "blue" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("PROJ" :foreground "purple" :weight bold))
+(add-to-list 'org-todo-keyword-faces '("MILE" :foreground "MediumVioletRed" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("NEXT" :foreground "green" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("BLOCK" :foreground "red" :weight bold))
 (add-to-list 'org-todo-keyword-faces '("SENT" :foreground "green" :weight bold))
@@ -151,6 +153,7 @@
   (setq org-refile-targets '(
                         (nil :maxlevel . 2)             ; refile to headings in the current buffer
                         ("~/gtd/gtd.org" :maxlevel . 2)
+                        ("~/gtd/gtd_household.org" :maxlevel . 2)
                         ("~/gtd/someday.org" :maxlevel . 2)
                         ("~/gtd/waitingfor.org" :maxlevel . 2)
                         ("~/gtd/people.org" :maxlevel . 2)
@@ -179,6 +182,8 @@
   (add-to-list 'orb-preformat-keywords "year")
   (add-to-list 'orb-preformat-keywords "doi")
   )
+
+(setq bibtex-dialect 'BibTeX)
 
 ;; overwrite this function to deal with relative paths in the 'file' property of a bibtex file
 (after! org-ref
