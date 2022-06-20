@@ -3,3 +3,10 @@
 /orgReportHeader.pdf
 /config.org
 /snippets/org-mode/.yas-compiled-snippets.el
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.tex
+/*.toc
