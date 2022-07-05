@@ -38,6 +38,9 @@
   :recipe (:host github :repo "org-roam/org-roam-bibtex"))
 
 ;; (package! org-super-agenda)
+(package! org-ql)
+(package! org-edna)
+
 
 
 ;; (unpin! org-roam)
