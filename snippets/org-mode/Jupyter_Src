@@ -1,10 +1,6 @@
 # key: <j
 # name: Jupyter_Src
 # --
-#+NAME: $1
-#+BEGIN_SRC jupyter-python :session test
-$2 = symbols('$2')
+#+BEGIN_SRC jupyter-python :session main :kernel nilmtk-env :async yes :noweb yes
 $0
 #+End_src
-
-#+RESULTS: $1
