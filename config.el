@@ -282,9 +282,9 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 (custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 1.5 :weight semi-bold))))
-  '(org-level-2 ((t (:inherit outline-2 :height 1.3 :weight semi-bold))))
-  '(org-level-3 ((t (:inherit outline-3 :height 1.2 :weight semi-bold))))
+  '(org-level-1 ((t (:inherit outline-1 :height 1.4 :weight semi-bold))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.2 :weight semi-bold))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.1 :weight semi-bold))))
   '(org-level-4 ((t (:inherit outline-4 :height 1.0 :weight semi-bold))))
   '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
 )
@@ -386,7 +386,7 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 2)
 ;org bullets related
-(setq org-superstar-headline-bullets-list '(" " " " "◉" "○"))
+(setq org-superstar-headline-bullets-list '(" " " " " " " " " " " "))
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
