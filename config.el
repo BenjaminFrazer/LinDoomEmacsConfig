@@ -390,6 +390,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+(after! org
+  (org-edna-mode))
 
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
