@@ -445,6 +445,8 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 (add-to-list 'org-latex-packages-alist '("" "circuitikz" t))
 (add-to-list 'org-latex-packages-alist '("" "gensymb" t))
+(add-to-list 'org-latex-packages-alist '("" "amsfonts" t))
+(add-to-list 'org-latex-packages-alist '("" "amssymb" t))
 
 (setq org-latex-listings 'minted)
 
