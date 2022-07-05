@@ -413,9 +413,10 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
                                                         ;; (:results . "replace raw")
                                                         (:async . "no")
                                                         (:pandoc . "t")
-                                                        (:prologue . "from sympy import *\n")
-
+                                                        ;; (:prologue . "from sympy import *\n")
                                             ))
+;; (after! jupter)
+;; (add-to-list 'jupyter-org-mime-types ":text/html")
 ;; (defvar org-babel-default-inline-header-args
 ;;   '((:session . "none") (:results . "replace")
 ;;     (:exports . "results") (:hlines . "yes"))
