@@ -534,6 +534,25 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
       (add-hook 'org-babel-after-execute-hook #'my/babel-ansi)
     (remove-hook 'org-babel-after-execute-hook #'my/babel-ansi)))
 
+;;############################ timestamp export ######################
+;; (add-to-list 'org-export-filter-timestamp-functions
+;;              #'endless/filter-timestamp)
+;; (defun endless/filter-timestamp (trans back _comm)
+;;   "Remove <> around time-stamps."
+;;   (pcase back
+;;     ((or `jekyll `html)
+;;      (replace-regexp-in-string "&[lg]t;" "" trans))
+;;     (`latex
+;;      (replace-regexp-in-string "[<>]" "" trans))))
+
+;; (setq-default org-display-custom-times t)
+;; ;;; Before you ask: No, removing the <> here doesn't work.
+;; (setq org-time-stamp-custom-formats
+;;       '("<%d/%m/%Y>" . "<%d/%m/%y %a %H:%M>"))
+;; ;; make the time stamps monospace
+;; (setq org-latex-active-timestamp-format "\\texttt{%s}")
+;; (setq org-latex-inactive-timestamp-format "\\texttt{%s}")
+
 ;;############################zen mode ######################
 ;; (add-hook 'matlab-mode-hook (lambda () (zencoding-mode 1)))
 
