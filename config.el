@@ -68,6 +68,7 @@
 (after! org
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/gtd.org"
+                         "~/gtd/calendar.org"
                          "~/gtd/gtd_household.org"
                          "~/gtd/people.org"
                          "~/gtd/waitingfor.org"
@@ -131,6 +132,9 @@
 (add-to-list 'org-todo-keywords
              '(sequence "IN" "TODO" "PROJ" "|" "DONE"))
 
+(add-to-list 'org-todo-keywords
+             '(sequence "READ" "|" "DONE"))
+
 ;; This is so I cannot set a headline to DONE if children aren’t DONE.
 (setq-default org-enforce-todo-dependencies t)
 
@@ -155,8 +159,10 @@
                         ("~/gtd/gtd.org" :maxlevel . 2)
                         ("~/gtd/gtd_household.org" :maxlevel . 2)
                         ("~/gtd/someday.org" :maxlevel . 2)
+                        ("~/gtd/calendar.org" :maxlevel . 2)
                         ("~/gtd/waitingfor.org" :maxlevel . 2)
                         ("~/gtd/people.org" :maxlevel . 2)
+                        ("~/gtd/places.org" :maxlevel . 2)
                         ("~/gtd/tickler.org" :maxlevel . 2))))
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
