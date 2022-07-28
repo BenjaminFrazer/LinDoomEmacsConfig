@@ -456,8 +456,13 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (setq org-latex-pdf-process
       '("pdflatex -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"
        "bibtex %b"
+       "makeglossaries %b"
        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-       "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+       "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+       ))
+
+(add-hook 'org-export-before-parsing-hook 'org-ref-glossary-before-parsing)
+(add-hook 'org-export-before-parsing-hook 'org-ref-acronyms-before-parsing)
 ;("latexmk -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f")
 
 (setq org-latex-toc-command "\\tableofcontents \\clearpage")
