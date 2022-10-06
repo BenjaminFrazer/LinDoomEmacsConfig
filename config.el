@@ -486,12 +486,12 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (add-to-list 'org-latex-classes
-             '("thesis"
-               "\\documentclass{MastersDoctoralThesis}"
+             '("bf_thesis"
+               "\\documentclass[11pt]{report}"
                ("\\chapter{%s}" . "\\chapter*{%s}")
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\section{%s}" . "\\section{%s}")
+               ("\\subsection{%s}" . "\\subsection{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
