@@ -372,6 +372,16 @@ projectile-project-search-path '("~/Nextcloud3/GuDocs/NoteBook/" "C:/Users/b0628
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 
 ;;####################org mode ###########################################
+(setq! browse-url-browser-function 'browse-url-firefox)
+(after! org
+(setq! org-file-apps
+'((remote . emacs)
+ (auto-mode . emacs)
+ (directory . emacs)
+ ("\\.mm\\'" . default)
+ ("\\.x?html?\\'" . "firefox %s")
+ ("\\.pdf\\'" . emacs))))
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t)) ; this line activates ditaa
