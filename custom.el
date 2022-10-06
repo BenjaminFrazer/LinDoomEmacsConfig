@@ -48,6 +48,7 @@
      ("" "minted" nil)
      ("" "xfrac" t)))
  '(org-list-demote-modify-bullet '(("-" . "+") ("1." . "-") ("+" . "*")))
+ '(org-startup-shrink-all-tables t)
  '(org-startup-with-inline-images t)
  '(org-superstar-item-bullet-alist '((42 . 8226) (43 . 9655) (45 . 9658)))
  '(pdf-view-midnight-colors (cons "#DCDCDC" "#3F3F3F"))
@@ -86,9 +87,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-drawer ((t (:inherit org-document-info-keyword :foreground unspecified :height 0.8))))
- '(org-level-1 ((t (:inherit outline-1 :height 1.5 :weight semi-bold))))
- '(org-level-2 ((t (:inherit outline-2 :height 1.3 :weight semi-bold))))
- '(org-level-3 ((t (:inherit outline-3 :height 1.2 :weight semi-bold))))
+ '(org-level-1 ((t (:inherit outline-1 :height 1.4 :weight semi-bold))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.2 :weight semi-bold))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.1 :weight semi-bold))))
  '(org-level-4 ((t (:inherit outline-4 :height 1.0 :weight semi-bold))))
  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
  '(org-link ((t (:inherit link :foreground "maroon"))))
