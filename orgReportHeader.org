@@ -1,4 +1,4 @@
-#+EMAIL:2704250F@student.gla.ac.uk
+#+EMAIL: benjamin.frazer.1997@gmail.com
 #+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \pagestyle{fancy}
